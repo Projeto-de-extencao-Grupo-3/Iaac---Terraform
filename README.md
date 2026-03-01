@@ -4,18 +4,18 @@ Este repositório contém a infraestrutura do projeto GroTrack utilizando Terraf
 
 ## 📂 Estrutura do Repositório
 
-### provider.tf
-### Configura o provedor AWS e a região onde os recursos serão criados.
+### - provider.tf
+#### Configura o provedor AWS e a região onde os recursos serão criados.
 Responsável por conectar o Terraform à AWS.
 
-### keypair.tf
-### Cria a chave SSH (aws_key_pair) utilizada para acessar as instâncias EC2.
+### - keypair.tf
+#### Cria a chave SSH (aws_key_pair) utilizada para acessar as instâncias EC2.
 Envia a chave pública (.pub) para a AWS.
 
 
-### security_groups.tf
-### Define os Security Groups (regras de firewall).
-#### Controla:
+### - security_groups.tf
+#### Define os Security Groups (regras de firewall).
+##### Controla:
 
 - Portas abertas
 
@@ -25,9 +25,9 @@ Envia a chave pública (.pub) para a AWS.
 
 - Comunicação entre frontend, backend e banco
 
-### ec2.tf
-### Cria as instâncias EC2 do projeto.
-#### Define:
+### - ec2.tf
+#### Cria as instâncias EC2 do projeto.
+##### Define:
 
 - Tipo da instância (ex: t2.micro)
 
