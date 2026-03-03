@@ -1,4 +1,5 @@
-# SECURITY GROUPS
+# SECURITY GROUPS (VAZIOS)
+
 resource "aws_security_group" "frontend_sg" {
   name   = "frontend-sg"
   vpc_id = aws_vpc.grotrack_vpc.id
@@ -74,16 +75,14 @@ resource "aws_security_group_rule" "db_from_backend" {
   source_security_group_id = aws_security_group.backend_sg.id
 }
 
-# SSH INTERNO ENTRE TODAS
+# SSH INTERNO (10.0.0.0/24)
 
-# ALL SSH
-
-resource "aws_security_group_rule" "ssh_front" {
+resource "aws_security_group_rule" "ssh_frontend" {
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = ["10.0.0.0/24"]
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.frontend_sg.id
 }
 
@@ -105,38 +104,9 @@ resource "aws_security_group_rule" "ssh_db" {
   security_group_id = aws_security_group.db_sg.id
 }
 
-# SSH (BUG AWS)
+# SAÍDA TOTAL PARA INTERNET
 
-resource "aws_security_group_rule" "ssh_front" {
-  type              = "egress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = ["10.0.0.0/24"]
-  security_group_id = aws_security_group.frontend_sg.id
-}
-
-resource "aws_security_group_rule" "ssh_backend" {
-  type              = "egress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = ["10.0.0.0/24"]
-  security_group_id = aws_security_group.backend_sg.id
-}
-
-resource "aws_security_group_rule" "ssh_db" {
-  type              = "egress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = ["10.0.0.0/24"]
-  security_group_id = aws_security_group.db_sg.id
-}
-
-# SAÍDA PARA INTERNET
-
-resource "aws_security_group_rule" "frontend_all" {
+resource "aws_security_group_rule" "frontend_egress_all" {
   type              = "egress"
   from_port         = 0
   to_port           = 0
@@ -145,7 +115,7 @@ resource "aws_security_group_rule" "frontend_all" {
   security_group_id = aws_security_group.frontend_sg.id
 }
 
-resource "aws_security_group_rule" "backend_all" {
+resource "aws_security_group_rule" "backend_egress_all" {
   type              = "egress"
   from_port         = 0
   to_port           = 0
@@ -154,7 +124,7 @@ resource "aws_security_group_rule" "backend_all" {
   security_group_id = aws_security_group.backend_sg.id
 }
 
-resource "aws_security_group_rule" "db_all" {
+resource "aws_security_group_rule" "db_egress_all" {
   type              = "egress"
   from_port         = 0
   to_port           = 0

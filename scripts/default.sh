@@ -1,4 +1,5 @@
-#!bin/bash
+#!/bin/bash
 
 #script padrão para as imagens de ec2
-sudo apt update
+sudo apt update - y
+sudo mkdir -p /home/gro-track

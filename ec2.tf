@@ -15,7 +15,7 @@ resource "aws_instance" "frontend_grotrack" {
   }
 
   ebs_block_device {
-    device_name = "/home/gro-track"
+    device_name = "/dev/xvda"
     volume_size = 20
     volume_type = "gp3"
   }
@@ -40,7 +40,7 @@ resource "aws_instance" "frontend2_grotrack" {
   }
 
   ebs_block_device {
-    device_name = "/home/gro-track"
+    device_name = "/dev/xvda"
     volume_size = 20
     volume_type = "gp3"
   }
@@ -65,7 +65,7 @@ resource "aws_instance" "backend_grotrack" {
   }
 
   ebs_block_device {
-    device_name = "/home/gro-track"
+    device_name = "/dev/xvda"
     volume_size = 20
     volume_type = "gp3"
   }
@@ -90,7 +90,7 @@ resource "aws_instance" "db_grotrack" {
   }
 
   ebs_block_device {
-    device_name = "/home/gro-track"
+    device_name = "/dev/xvda"
     volume_size = 20
     volume_type = "gp3"
   }
@@ -115,7 +115,7 @@ resource "aws_instance" "api_grotrack" {
   }
 
   ebs_block_device {
-    device_name = "/home/gro-track"
+    device_name = "/dev/xvda"
     volume_size = 20
     volume_type = "gp3"
   }
