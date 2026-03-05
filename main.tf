@@ -5,3 +5,7 @@ module "vpc" {
 module "cloudwatch" {
     source = "./cloudwatch"
 }
+
+module "keypair" {
+    source = "./keypair"
+}
