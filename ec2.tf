@@ -4,7 +4,7 @@ resource "aws_instance" "frontend_grotrack" {
   ami                    = "ami-0b6c6ebed2801a5cb"
   instance_type          = "t3.small"
   key_name               = aws_key_pair.grotrack_key.key_name
-  subnet_id              = module.vpc.aws_subnet.public_zb.id
+  subnet_id              = aws_subnet.public_zb.id
   # private_ip             = "10.0.0.52"
   vpc_security_group_ids = [
     aws_security_group.frontend_sg.id
@@ -29,7 +29,7 @@ resource "aws_instance" "frontend2_grotrack" {
   ami                    = "ami-0b6c6ebed2801a5cb"
   instance_type          = "t3.small"
   key_name               = aws_key_pair.grotrack_key.key_name
-  subnet_id              = module.vpc.aws_subnet.public_zc.id
+  subnet_id              = aws_subnet.public_zc.id
   # private_ip             = "10.0.0.68"
   vpc_security_group_ids = [
     aws_security_group.frontend_sg.id
@@ -54,7 +54,7 @@ resource "aws_instance" "backend_grotrack" {
   ami                    = "ami-0b6c6ebed2801a5cb"
   instance_type          = "t3.small"
   key_name               = aws_key_pair.grotrack_key.key_name
-  subnet_id              = module.vpc.aws_subnet.private_za.id
+  subnet_id              = aws_subnet.private_za.id
   # private_ip             = "10.0.0.4"
   vpc_security_group_ids = [
     aws_security_group.backend_sg.id

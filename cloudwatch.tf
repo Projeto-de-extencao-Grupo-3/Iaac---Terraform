@@ -11,7 +11,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_alarm_frontend" {
   alarm_description   = "CPU usage too high"
 
   dimensions = {
-    InstanceId = aws_instance.frontend_grotrack.id
+    InstanceId = module
   }
 
   alarm_actions = [
