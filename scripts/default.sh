@@ -1,15 +1,36 @@
 #!/bin/bash
+echo "===== INICIANDO SETUP GROTRACK ====="
 
 # Atualizar sistema
-sudo apt update && sudo apt upgrade -y
+apt update -y
+apt upgrade -y
 
-# Criar pasta da aplicação
-sudo mkdir -p /home/gro-track
-# baixar chave do S3
+# Habilitar repositório universe
+add-apt-repository universe -y
+
+# Instalar dependências básicas
+apt install -y unzip curl apt-transport-https ca-certificates software-properties-common
+
+# Criar diretório da aplicação
+mkdir -p /home/gro-track
+chown ubuntu:ubuntu /home/gro-track
+echo "Diretório /home/gro-track criado"
+
+# Ir para diretório do ubuntu
+cd /home/ubuntu
+
+# INSTALAR AWS CLI
+echo "Instalando AWS CLI"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+./aws/install
+echo "AWS CLI instalado"
+
+# BAIXAR CHAVE DO S3
+echo "Baixando chave do S3"
 aws s3 cp s3://grotrack-bucket-client/keys/key-grotrack.pem /home/gro-track/key-grotrack.pem
 chmod 400 /home/gro-track/key-grotrack.pem
-
-echo "Script rodou com a criação de pasta"
+echo "Chave copiada para /home/gro-track"
 
 # Dependências
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
