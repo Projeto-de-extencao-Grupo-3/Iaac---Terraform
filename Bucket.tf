@@ -43,6 +43,6 @@ resource "aws_s3_object" "pem_upload" {
 
 resource "aws_s3_object" "pdf_upload" {
   bucket = aws_s3_bucket.grotrack_bucket_client.bucket
-  key    = "pdf/"
-  content = ""
+  key    = "pdf/OS0001_ANA_PAULA_MARTINS_FRO1C23.pdf"
+  etag = filemd5("pdf/OS0001_ANA_PAULA_MARTINS_FRO1C23.pdf")
 }
