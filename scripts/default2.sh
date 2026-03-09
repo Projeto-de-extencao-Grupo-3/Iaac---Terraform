@@ -76,12 +76,12 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#164A81;
+    color:white;
 }
 
 .container{
     text-align:center;
-    background: rgba(255, 255, 255, 255);
+    background: rgba(255, 0, 0, 0.728);
     padding:50px;
     border-radius:12px;
     box-shadow:0 10px 25px rgba(0,0,0,0.3);
@@ -110,7 +110,7 @@ h1{
 
 <div class="container">
     <h1>🚀 GroTrack</h1>
-    <h2>Front-and 1 Online</h2>
+    <h2>Front-and 2 Online</h2>
 
     <div class="status">
         ✅ Load Balancer funcionando
