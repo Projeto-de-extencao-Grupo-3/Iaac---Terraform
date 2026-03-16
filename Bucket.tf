@@ -7,6 +7,14 @@ resource "aws_s3_bucket" "grotrack_bucket_raw" {
   }
 }
 
+# resource "aws_s3_object" "client_csv_upload" {
+#   bucket = aws_s3_bucket.grotrack_bucket_raw.bucket
+#   key    = "analise/feriados_tratados.csv"
+#   source = "analise/feriados_completo.csv"
+
+#   etag = filemd5("analise/feriados_completo.csv")
+# }
+
 resource "aws_s3_bucket" "grotrack_bucket_trusted" {
   bucket = "grotrack-bucket-trusted"
 

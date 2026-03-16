@@ -45,7 +45,7 @@ resource "aws_instance" "frontend2_grotrack" {
     volume_type = "gp3"
   }
 
-  user_data = file("scripts/default.sh")
+  user_data = file("scripts/default2.sh")
 }
 
 # BACKEND (ZA)
