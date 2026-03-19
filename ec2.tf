@@ -20,7 +20,7 @@ resource "aws_instance" "frontend_grotrack" {
     volume_type = "gp3"
   }
 
-  user_data = file("scripts/default.sh")
+  user_data = file("scripts/frontend.sh")
 }
 
 # FRONTEND 2 (ZC)
@@ -45,7 +45,7 @@ resource "aws_instance" "frontend2_grotrack" {
     volume_type = "gp3"
   }
 
-  user_data = file("scripts/default2.sh")
+  user_data = file("scripts/frontend2.sh")
 }
 
 # BACKEND (ZA)
@@ -70,7 +70,7 @@ resource "aws_instance" "backend_grotrack" {
     volume_type = "gp3"
   }
 
-  user_data = file("scripts/default.sh")
+  user_data = file("scripts/backend.sh")
 }
 
 # DB (ZA)
@@ -95,7 +95,7 @@ resource "aws_instance" "db_grotrack" {
     volume_type = "gp3"
   }
 
-  user_data = file("scripts/default.sh")
+  user_data = file("scripts/bd.sh")
 }
 
 # API (ZA)
@@ -120,5 +120,5 @@ resource "aws_instance" "api_grotrack" {
     volume_type = "gp3"
   }
 
-  user_data = file("scripts/default.sh")
+  user_data = file("scripts/api.sh")
 }

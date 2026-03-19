@@ -5,7 +5,7 @@ echo "===== INICIANDO SETUP GROTRACK ====="
 sudo apt update && sudo apt upgrade -y
 
 # Configurar hostname
-sudo hostnamectl set-hostname frontend
+sudo hostnamectl set-hostname backend
 
 # Habilitar repositório universe
 add-apt-repository universe -y
